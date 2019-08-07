@@ -1,0 +1,30 @@
+{
+  "name": "devops",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "pg:up": "docker-compose -f docker-compose-postgres.yml -p pg up -d",
+    "pg:down": "docker-compose -f docker-compose-postgres.yml -p pg down",
+    "pg:logs": "docker logs -f postgres-4dev",
+    "pg:volume": "docker inspect devops_postgres_data",
+    "pg:psql": "docker exec -it postgres-4dev psql -U postgres",
+    "pg:demoDbCreate": "docker exec -it postgres-4dev psql -U postgres -c \"create database demo\"",
+    "mgo:up": "docker-compose -f docker-compose-mongodb.yml -p mgo up -d",
+    "mgo:down": "docker-compose -f docker-compose-mongodb.yml -p mgo down",
+    "mgo:logs": "docker logs -f mongodb-4dev",
+    "mgo:volume": "docker inspect devops_mongodb_data",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/namtevizi/devops.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/namtevizi/devops/issues"
+  },
+  "homepage": "https://github.com/namtevizi/devops#readme"
+}
