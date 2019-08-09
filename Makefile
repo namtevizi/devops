@@ -1,4 +1,4 @@
-.PHONY : up down pg-up pg-down mgo-up mgo-down
+.PHONY : up down pg-up pg-down mgo-up mgo-down nats-up nats-down nats-logs
 
 up:
 	docker-compose -f docker-compose-postgres.yml up -d
@@ -23,3 +23,12 @@ mgo-down:
 
 mgo-logs:
 	docker logs -f mongodb-4dev
+
+nats-up:
+	docker-compose -f docker-compose-nats-stream.yml -p nats up -d
+
+nats-down:
+	docker-compose -f docker-compose-nats-stream.yml -p nats down
+
+nats-logs:
+	docker logs -f nats-streaming-4dev

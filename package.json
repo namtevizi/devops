@@ -14,6 +14,9 @@
     "mgo:down": "docker-compose -f docker-compose-mongodb.yml -p mgo down",
     "mgo:logs": "docker logs -f mongodb-4dev",
     "mgo:volume": "docker inspect devops_mongodb_data",
+    "nats:up": "docker-compose -f docker-compose-nats-stream.yml -p nats up -d",
+    "nats:down": "docker-compose -f docker-compose-nats-stream.yml -p nats down",
+    "nats:logs": "docker logs -f nats-streaming-4dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
