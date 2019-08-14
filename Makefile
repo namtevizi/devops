@@ -1,4 +1,4 @@
-.PHONY : up down pg-up pg-down mgo-up mgo-down nats-up nats-down nats-logs
+.PHONY : up down pg-up pg-down mgo-up mgo-down nats-up nats-down nats-logs mysql-up mysql-down mysql-ver mysql-dump mysqldump
 
 up:
 	docker-compose -f docker-compose-postgres.yml up -d
@@ -32,3 +32,18 @@ nats-down:
 
 nats-logs:
 	docker logs -f nats-streaming-4dev
+
+mysql-up:
+	docker-compose -f docker-compose-mysql.yml up -d
+
+mysql-down:
+	docker-compose -f docker-compose-mysql.yml down
+
+mysql-ver:
+	docker exec -it mysql-4dev mysql --version
+
+mysql-dump:
+	docker exec -it mysql-4dev mysqldump --compatible=postgresql --default-character-set=utf8 -r dms.mysql -u root dms
+
+mysqldump:
+	docker exec -it mysql-4dev mysqldump -u root -p --compatible=postgresql -T/Users/namtran/dev/dms dms
