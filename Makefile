@@ -34,10 +34,10 @@ nats-logs:
 	docker logs -f nats-streaming-4dev
 
 mysql-up:
-	docker-compose -f docker-compose-mysql.yml up -d
+	docker-compose -f docker-compose-mysql.yml -p mysql up -d
 
 mysql-down:
-	docker-compose -f docker-compose-mysql.yml down
+	docker-compose -f docker-compose-mysql.yml -p mysql down
 
 mysql-ver:
 	docker exec -it mysql-4dev mysql --version
